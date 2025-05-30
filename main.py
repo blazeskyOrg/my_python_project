@@ -1,13 +1,15 @@
-# Import the Flask class
-from flask import Flask
+from flask import Flask, jsonify
 
-# Create an instance of the Flask class
 app = Flask(__name__)
 
-# Route for the root URL
-@app.route("/", methods=["GET"])
+@app.route('/')
 def home():
-    return "Hello, World!"
+    return jsonify({"message": "Hello, World!"})
 
-if __name__ == "__main__":
+@app.route('/add/<int:a>/<int:b>')
+def add(a, b):
+    result = a + b
+    return jsonify({"result": result})
+
+if __name__ == '__main__':
     app.run(debug=True)
