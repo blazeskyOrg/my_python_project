@@ -24,7 +24,7 @@ jobs:
 
       - name: Run tests
         run: |
-          python -m unittest discover -s test.py
+          python -m unittest test.py
 
       - name: Build and deploy app
         run: |
